@@ -11,16 +11,19 @@ const Panel = () => {
     chrome.tabs.create({ url: 'https://github.com/Jonghakseo/chrome-extension-boilerplate-react-vite' });
 
   return (
-    <div className={`App ${isLight ? 'bg-slate-50' : 'bg-gray-800'}`}>
-      <header className={`App-header ${isLight ? 'text-gray-900' : 'text-gray-100'}`}>
-        <button onClick={goGithubSite}>
-          <img src={chrome.runtime.getURL(logo)} className="App-logo" alt="logo" />
-        </button>
-        <p>
-          Edit <code>pages/devtools-panel/src/Panel.tsx</code>
-        </p>
-        <ToggleButton>Toggle theme</ToggleButton>
-      </header>
+    // <div className={`App ${isLight ? 'bg-slate-50' : 'bg-gray-800'}`}>
+    //   <header className={`App-header ${isLight ? 'text-gray-900' : 'text-gray-100'}`}>
+    //     <button onClick={goGithubSite}>
+    //       <img src={chrome.runtime.getURL(logo)} className="App-logo" alt="logo" />
+    //     </button>
+    //     <p>
+    //       Edit <code>pages/devtools-panel/src/Panel.tsx</code>
+    //     </p>
+    //     <ToggleButton>Toggle theme</ToggleButton>
+    //   </header>
+    // </div>
+    <div className="fixed bottom-5 right-5 w-24 h-24 bg-blue-500 text-white rounded-lg text-lg font-semibold shadow-lg hover:bg-blue-600 focus:outline-none z-50">
+      <ToggleButton>クリック</ToggleButton>
     </div>
   );
 };
