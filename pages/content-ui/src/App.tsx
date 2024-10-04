@@ -52,6 +52,7 @@ export default function App() {
   };
 
   const currentURL = window.location.href;
+
   return (
     <>
       {currentURL.includes('https://bonkcoin.com/') ? (

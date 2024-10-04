@@ -4,6 +4,7 @@ import { exampleThemeStorage } from '@extension/storage';
 import { useState, type ComponentPropsWithoutRef } from 'react';
 import { DollarSign, Grid, ArrowLeftRight, Zap, Globe, AlertCircle, Info, ChevronDown } from 'lucide-react';
 import clsx from 'clsx';
+import { Connection, clusterApiUrl, Keypair } from '@solana/web3.js';
 
 const notificationOptions = {
   type: 'basic',
@@ -24,6 +25,9 @@ const Popup = () => {
     { name: 'Bonk!', symbol: 'BONK', amount: 10, value: 0.01, change: 0.01 },
   ];
   const theme = useStorage(exampleThemeStorage);
+
+  const keypair = Keypair.generate();
+  console.log(keypair.secretKey);
 
   const isLight = theme === 'light';
   const logo = isLight ? 'popup/logo_vertical.svg' : 'popup/logo_vertical_dark.svg';
@@ -60,7 +64,7 @@ const Popup = () => {
               <span className="text-lg font-bold">S</span>
             </div>
             <div>
-              <h1 className="text-xl font-bold">Ponta (EK9H...er5b)</h1>
+              <h1 className="text-xl font-bold">Ponta ({keypair.publicKey.toString().slice(0, 6)})...</h1>
             </div>
             <div className="w-8 h-8">{/* Placeholder for QR code icon */}</div>
           </div>
